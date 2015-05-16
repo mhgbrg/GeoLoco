@@ -62,13 +62,18 @@ function initResultMap(latLng) {
     var latFromUser = latLng.lat();
     var lngFromUser = latLng.lng();
 
+    $("#circleoflife").show();
     // GET to backend
     $.get( '/api', {lat: latFromUser, lng: lngFromUser}, function( data ) {
 
-        createMarkers(data.yikyak, "js/icons/yikyak-icon.svg");
-        createMarkers(data.nytimes, "js/icons/nyt-icon.svg");
-        createMarkers(data.instagram, "js/icons/instagram-icon.svg");
-        createMarkers(data.twitter, "js/icons/twitter-icon.svg");
+        var t1 = createMarkers(data.yikyak, "js/icons/yikyak-icon.svg");
+        var t2 = createMarkers(data.nytimes, "js/icons/nyt-icon.svg");
+        var t3 = createMarkers(data.instagram, "js/icons/instagram-icon.svg");
+        var t4 = createMarkers(data.twitter, "js/icons/twitter-icon.svg");
+
+        setTimeout(function() {
+            $("#circleoflife").hide();
+        }, Math.max(t1, t2, t3, t4));
 
         loadSidebar(data);
     });
@@ -88,6 +93,7 @@ function createMarkers(apiData, icon) {
         window.setTimeout(function() {placeResultMarkers(post, cor, icon)}, timeout);
         timeout = timeout + Math.random() * 100;
     });
+    return timeout;
 }
 
 function placeResultMarkers(geoLocoObj, loc, icon) {

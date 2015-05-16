@@ -38,7 +38,7 @@ function loadSidebar(data) {
                         "<span class='card-title black-text'>@" + post.username + "</span>" +
                         "<p class='text'>" + post.caption + "</p>" +
                         "<span class='card-detail'>" + new Date(post.time).toLocaleString() + "</span>" +
-                        "<span class='card-detail'>" + post.lat + ", " + post.lng + "</span>" +
+                        "<span class='card-detail'>(" + post.lat + ", " + post.lng + ")</span>" +
                     "</div>" +
                 "</div>" +
             "</li>"
@@ -48,14 +48,31 @@ function loadSidebar(data) {
 
     data.nytimes.forEach(function(post) {
         $('#nytimesResults').append(
-            "<li>" + post.headline + "</li>"
+            "<li>" +
+                "<div class='card'>" +
+                    "<div class='card-content black-text'>" +
+                        "<span class='card-title black-text'>" + post.headline + "</span>" +
+                            "<p class='text'>" + post.snippet + "</p>" +
+                            "<span class='card-detail'>" + new Date(post.time).toLocaleString() + "</span>" +
+                            "<span class='card-detail'>(" + post.lat + ", " + post.lng + ")</span><br>" +
+                            "<span class='card-detail'>" + post.url + "</span>" +
+                    "</div>" +
+                "</div>" +
+            "</li>"
         );
-
     });
 
     data.yikyak.forEach(function(post) {
         $('#yikyakResults').append(
-            "<li>" + post.text + "</li>"
+            "<li>" +
+            "<div class='card'>" +
+            "<div class='card-content black-text'>" +
+            "<p class='text'>" + post.text + "</p>" +
+            "<span class='card-detail'>" + new Date(post.time).toLocaleString() + "</span>" +
+            "<span class='card-detail'>(" + post.lat + ", " + post.lng + ")</span>" +
+            "</div>" +
+            "</div>" +
+            "</li>"
         );
 
     });
