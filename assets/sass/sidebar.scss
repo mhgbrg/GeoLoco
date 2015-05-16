@@ -1,7 +1,7 @@
 aside.sidebarWrapper header {
   padding: $baseSpacing;
   h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+    margin-top: 0;
   }
 }
 
@@ -12,4 +12,16 @@ aside.sidebarWrapper {
   bottom: 0;
   width: $sidebarWidth;
   @extend .z-depth-1;
+}
+
+aside.sidebarWrapper ul.collapsible {
+  box-shadow: none;
+  border-left: 0;
+  border-right: 0;
+  div.collapsible-header {
+    transition: background-color $transition;
+    &:hover {
+      background-color: rgba(0,0,0,.05);
+    }
+  }
 }

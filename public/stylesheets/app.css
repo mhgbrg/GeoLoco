@@ -8074,9 +8074,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 
 aside.sidebarWrapper header {
-  padding: 1rem; }
+  padding: 2rem; }
   aside.sidebarWrapper header h1, aside.sidebarWrapper header h2, aside.sidebarWrapper header h3, aside.sidebarWrapper header h4, aside.sidebarWrapper header h5, aside.sidebarWrapper header h6 {
-    margin: 0; }
+    margin-top: 0; }
 
 aside.sidebarWrapper {
   position: fixed;
@@ -8084,6 +8084,15 @@ aside.sidebarWrapper {
   top: 0;
   bottom: 0;
   width: 40rem; }
+
+aside.sidebarWrapper ul.collapsible {
+  box-shadow: none;
+  border-left: 0;
+  border-right: 0; }
+  aside.sidebarWrapper ul.collapsible div.collapsible-header {
+    transition: background-color 0.25s; }
+    aside.sidebarWrapper ul.collapsible div.collapsible-header:hover {
+      background-color: rgba(0, 0, 0, 0.05); }
 
 #mapCanvas {
   width: 100%;
@@ -8109,7 +8118,22 @@ body {
 
 body {
   background: white;
-  font-size: 10px; }
+  font-size: 16px; }
+
+h1 {
+  font-size: 3rem; }
+
+h2 {
+  font-size: 2.5rem; }
+
+h3 {
+  font-size: 2rem; }
+
+h4 {
+  font-size: 1.75rem; }
+
+h5 {
+  font-size: 1.5rem; }
 
 main.mainWrapper {
   width: calc(100% - 40rem);

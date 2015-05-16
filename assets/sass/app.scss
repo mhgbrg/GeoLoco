@@ -1,5 +1,6 @@
 $sidebarWidth: 40rem;
-$baseSpacing: 1rem;
+$baseSpacing: 2rem;
+$transition: .25s;
 
 @import 'materialize';
 
@@ -15,8 +16,14 @@ body {
 }
 body {
   background: white;
-  font-size: 10px;
+  font-size: 16px;
 }
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.75rem; }
+h5 { font-size: 1.5rem; }
 
 main.mainWrapper {
   width: calc(100% - #{$sidebarWidth});
