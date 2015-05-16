@@ -8,7 +8,7 @@ function initMap() {
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("mapCanvas"), myOptions);
 
     // add a click event handler to the map object
     google.maps.event.addListener(map, "click", function (event) {

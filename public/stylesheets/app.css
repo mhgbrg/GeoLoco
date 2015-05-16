@@ -8073,9 +8073,19 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .picker--time .picker__box {
     margin-bottom: 5em; } }
 
-body {
-  background: tomato; }
+#mapCanvas {
+  width: 100%;
+  height: calc(100% - 200px); }
 
-#map_canvas {
-  height: 600px;
-  width: 800px; }
+#bigSearch {
+  width: 100%;
+  margin-bottom: 0; }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  width: 100%; }
+
+body {
+  background: white; }
