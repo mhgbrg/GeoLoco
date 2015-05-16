@@ -6,8 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'GeoLocoo' });
 });
 
-router.get('/result', function(req, res, next) {
-	res.render('result', {title: 'Result Page'})
+router.get('/search', function(req, res, next) {
+	res.render('search', {title: 'Result Page'})
 })
 
 module.exports = router;

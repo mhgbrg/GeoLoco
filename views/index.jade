@@ -1,10 +1,10 @@
 extends layout
 
-block content
-    <body onload="initMap()">
-    <div id="map_canvas"></div>
-    form#sendCor(name="sendCor",method="get",action="/api")
-        input#latFld(type="text", placeholder="lng", name="lng")
-        input#lngFld(type="text", placeholder="lat", name="lat")
-        button#btnSubmit(type="submit") Send Lng Lat
-    </body>
+block search
+    input(type="text", placeholder="Search all around the world")
+
+block sidebar
+    h2 Sidebar
+
+block map
+    div#map_canvas

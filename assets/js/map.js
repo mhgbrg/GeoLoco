@@ -1,8 +1,7 @@
 var map;
 var markersArray = [];
 
-function initMap()
-{
+function initMap() {
     var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
     var myOptions = {
         zoom: 12,
@@ -12,8 +11,7 @@ function initMap()
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
     // add a click event handler to the map object
-    google.maps.event.addListener(map, "click", function(event)
-    {
+    google.maps.event.addListener(map, "click", function (event) {
         // place a marker
         placeMarker(event.latLng);
 
@@ -22,12 +20,13 @@ function initMap()
         document.getElementById("lngFld").value = event.latLng.lng();
     });
 }
+
 function placeMarker(location) {
     // first remove all markers if there are any
     deleteOverlays();
 
     var marker = new google.maps.Marker({
-        position: location, 
+        position: location,
         map: map
     });
 
@@ -43,9 +42,10 @@ function deleteOverlays() {
         for (i in markersArray) {
             markersArray[i].setMap(null);
         }
-    markersArray.length = 0;
+        markersArray.length = 0;
     }
 }
+
 //*********************************************
 //* Functions for adding social media markers *
 //*********************************************
@@ -62,7 +62,7 @@ function initResultMap() {
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
     var loc = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
-    
+
     placeResultMarkers(loc);
 }
 
@@ -71,10 +71,10 @@ function placeResultMarkers(loc) {
     deleteOverlays();
 
     var marker = new google.maps.Marker({
-      position: loc,
-      map: map,
-      title: 'Hello World!'
-  });
+        position: loc,
+        map: map,
+        title: 'Hello World!'
+    });
 
     markersArray.push(marker);
 }
