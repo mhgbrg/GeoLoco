@@ -46,7 +46,19 @@ router.get('/', function(req, res, next) {
 	    	request(options, function(error, response, body) {
 		        callback(null, JSON.parse(body));
 		    });
-	    }
+	    },
+	    yikyak: function(callback) {
+	        var url = 'http://localhost:1337/api/yikyak?lat=' + lat + '&lng=' + lng;
+	    	var options = {
+		        url: url,
+		        method: 'GET'
+		    };
+
+		    console.log(url);
+	    	request(options, function(error, response, body) {
+		        callback(null, JSON.parse(body));
+		    });
+	    },
 	}, function(err, results) {
 		res.json(results);
 	});

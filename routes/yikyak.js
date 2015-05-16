@@ -1,21 +1,14 @@
-/* Require stuff */
+var express = require('express');
+var router = express.Router();
+
 var uuid = require('node-uuid');
 var request = require('request');
 var qs = require('querystring');
 var crypto = require('crypto');
 
-/* Default variables */
 var baseURL = "https://us-west-api.yikyakapi.net";
 var key = "F7CAFA2F-FE67-4E03-A090-AC7FFF010729";
 var userid = uuid.v4().toUpperCase(); // Generate a v4 UUID
-
-/* Times Square */
-var lat = 40.758899;
-var lng = -73.985131;
-
-/* Gothenburg */
-// var lat = 57.709086;
-// var lng = 11.974514;
 
 var options = {
 	headers: {
@@ -44,34 +37,7 @@ function getHash(url, key, salt) {
 	return hash.replace(/[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g, '');
 }
 
-function registerUser(callback) {
-	var url = "/api/registerUser";
-
-	var params = {
-		'userID': userid,
-		'userLat': lat,
-		'userLong': lng
-	}
-
-	var path = getPath(url, params);
-	var salt = getSalt();
-	var hash = getHash(path, key, salt);
-
-	params.salt = salt;
-	params.hash = hash;
-
-	var fullPath = baseURL + getPath(url, params);
-
-	options.url = fullPath;
-	options.method = 'POST';
-
-	request(options, function(error, response, body) {
-		callback();
-	});
-}
-
-function getMessages(callback) {
-
+function getMessages(lat, lng, callback) {
 	var url = "/api/getMessages";
 
 	var params = {
@@ -97,14 +63,58 @@ function getMessages(callback) {
 	request(options, function(error, response, body) {
 		callback(JSON.parse(body).messages);
 	});
-
 }
 
-registerUser(function() {
-	getMessages(function(messages) {
-		// A message contains: message, latitude, longitude, time, numberOfLikes...
-		messages.forEach(function(message) {
-			console.log(message.time +': '+ message.message);
+function registerUser(lat, lng, callback) {
+	var url = "/api/registerUser";
+
+	var params = {
+		'userID': userid,
+		'userLat': lat,
+		'userLong': lng
+	};
+
+	var path = getPath(url, params);
+	var salt = getSalt();
+	var hash = getHash(path, key, salt);
+
+	params.salt = salt;
+	params.hash = hash;
+
+	var fullPath = baseURL + getPath(url, params);
+
+	options.url = fullPath;
+	options.method = 'POST';
+
+	request(options, function(error, response, body) {
+		callback();
+	});
+}
+
+router.get('/', function(req, res, next) {
+	var lat = req.query.lat;
+	var lng = req.query.lng;
+
+	var parse = function (statuses) {
+		var result = [];
+
+		statuses.forEach(function(current) {
+			result.push({
+				'text': current.message,
+				'lat': current.latitude,
+				'lng': current.longitude,
+				'time': new Date(current.time),
+			});
+		});
+
+		return result;
+	}
+
+	registerUser(lat, lng, function() {
+		getMessages(lat, lng, function(messages) {
+			res.json(parse(messages));
 		});
 	});
 });
+
+module.exports = router;
