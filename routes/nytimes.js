@@ -6,18 +6,18 @@ var _ = require('underscore');
 router.get('/', function(req, res, next) {
 	var lat = parseFloat(req.query.lat);
 	var lng = parseFloat(req.query.lng);
-	var distance = parseInt(req.query.distance);
+	var radius = parseInt(req.query.radius);
 
-	var getLocations = function (lat, lng, distance, callback) {
-		var coordDiff = distance / 100 / 2;
+	var getLocations = function (lat, lng, radius, callback) {
+		var coordDiff = radius / 100 / 2;
 		var northEastLat = lat + coordDiff;
 		var northEastLng = lng + coordDiff;
 		var southWestLat = lat - coordDiff;
 		var southWestLng = lng - coordDiff;
 
-		console.log('orig: ' + lat + ',' + lng);
-		console.log('one: ' + northEastLat + ',' + northEastLng);
-		console.log('two: ' + southWestLat + ',' + southWestLng);
+		// console.log('orig: ' + lat + ',' + lng);
+		// console.log('one: ' + northEastLat + ',' + northEastLng);
+		// console.log('two: ' + southWestLat + ',' + southWestLng);
 
 		var url = 'http://api.nytimes.com/svc/semantic/v2/geocodes/query.json';
 		url = url + '?bounding_box=' + northEastLat + ',' + northEastLng + ',' + southWestLat + ',' + southWestLng;
@@ -47,6 +47,7 @@ router.get('/', function(req, res, next) {
 		    method: 'GET'
 		};
 
+		console.log(url);
 		request(options, function(error, response, body) {
 			var result = parse(body);
 		    callback(result);
@@ -60,8 +61,6 @@ router.get('/', function(req, res, next) {
 		url = url + '?q=' + place.name;
 		url = url + '&sort=newest';
 		url = url + '&api-key=01eb55538f0498ee87e4ef047bf2328a:3:72094865';
-
-		console.log(url);
 
 		var parse = function (data) {
 			var json = JSON.parse(data);
@@ -78,8 +77,8 @@ router.get('/', function(req, res, next) {
 					'snippet': current.snippet,
 					// 'type_of_material': current.type_of_material,
 					'time': current.pub_date,
-					'lat': place.lat,
-					'lng': place.lng
+					'lat': place.lat + Math.random() / 1000,
+					'lng': place.lng + Math.random() / 1000
 				});
 			});
 
@@ -91,6 +90,7 @@ router.get('/', function(req, res, next) {
 		    method: 'GET'
 		};
 
+		console.log(url);
 		request(options, function(error, response, body) {
 			var result = parse(body);
 		    callback(result);
@@ -100,7 +100,7 @@ router.get('/', function(req, res, next) {
 	var numberOfResults = 0;
 	var count = 0;
 	var finalResult = [];
-	getLocations(lat, lng, distance, function(places) {
+	getLocations(lat, lng, radius, function(places) {
 		numberOfResults = places.length;
 
 		places.forEach(function(place){
