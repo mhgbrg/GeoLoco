@@ -1,0 +1,15 @@
+aside.sidebarWrapper header {
+  padding: $baseSpacing;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+}
+
+aside.sidebarWrapper {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: $sidebarWidth;
+  @extend .z-depth-1;
+}

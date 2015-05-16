@@ -8,6 +8,8 @@ html
     script(src='/js/materialize.min.js')
     script(src='/js/main.min.js')
   body
-    block search
-    block map
-    block sidebar
+    main.mainWrapper
+        block search
+        block map
+    aside.sidebarWrapper
+        block sidebar
