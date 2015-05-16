@@ -3,6 +3,8 @@ var router = express.Router();
 var Twitter = require('twitter-node-client').Twitter;
 
 router.get('/', function(req, res, next) {
+	console.log('REQUEST: twitter');
+	
 	var parse = function (data) {
 		var json = JSON.parse(data);
 

@@ -3,6 +3,7 @@ var router = express.Router();
 var request = require('request');
 
 router.get('/', function(req, res, next) {
+    console.log('REQUEST: instagram');
     var lat = req.query.lat;
     var lng = req.query.lng;
     var cid = "984943bd8fe74b70b0959b42494cd294";
@@ -21,7 +22,7 @@ router.get('/', function(req, res, next) {
         posts.forEach(function(post) {
             result.push({
                 username: post.user.username,
-                caption: post.caption.text ? post.caption.text : '',
+                caption: post.caption !== null ? post.caption.text : '',
                 lat: post.location.latitude,
                 lng: post.location.longitude,
                 time: new Date(post.created_time * 1000),
