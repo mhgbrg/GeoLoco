@@ -1,7 +1,13 @@
 aside.sidebarWrapper header {
+  position: fixed;
   padding: $baseSpacing;
-  //border-bottom: 1px solid #DDD;
-  right: -$sidebarWidth;
+  border-bottom: 1px solid #DDD;
+  right: 0;
+  width: $sidebarWidth;
+  height: 200px;
+  overflow-y: scroll;
+  top: 0;
+  box-sizing: border-box;
   transition: right .75s;
 
   h1, h2, h3, h4, h5, h6 {
@@ -10,6 +16,7 @@ aside.sidebarWrapper header {
 }
 
 aside.sidebarWrapper {
+  padding-top: 200px;
   overflow-y: scroll;
   height: 100%;
   position: fixed;
@@ -17,19 +24,21 @@ aside.sidebarWrapper {
   top: 0;
   bottom: 0;
   width: $sidebarWidth;
-  border-left: 1px solid #DDD;
+  @extend .z-depth-2;
 }
 
 aside.sidebarWrapper ul.collapsible {
   box-shadow: none;
   border-left: 0;
   border-right: 0;
+  max-height:
 
   &.invisible {
     display: none;
   }
 
   div.collapsible-body ul li {
+    background: rgba(0,0,0, .05);
     padding-top: $baseSpacing;
     padding-left: $baseSpacing;
     padding-right: $baseSpacing;

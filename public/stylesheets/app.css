@@ -2040,7 +2040,7 @@ ul {
   -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
 
-.z-depth-2 {
+.z-depth-2, aside.sidebarWrapper {
   -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
@@ -8074,29 +8074,37 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 
 aside.sidebarWrapper header {
+  position: fixed;
   padding: 1rem;
-  right: -40rem;
+  border-bottom: 1px solid #DDD;
+  right: 0;
+  width: 40rem;
+  height: 200px;
+  overflow-y: scroll;
+  top: 0;
+  box-sizing: border-box;
   transition: right 0.75s; }
   aside.sidebarWrapper header h1, aside.sidebarWrapper header h2, aside.sidebarWrapper header h3, aside.sidebarWrapper header h4, aside.sidebarWrapper header h5, aside.sidebarWrapper header h6 {
     margin-top: 0; }
 
 aside.sidebarWrapper {
+  padding-top: 200px;
   overflow-y: scroll;
   height: 100%;
   position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 40rem;
-  border-left: 1px solid #DDD; }
+  width: 40rem; }
 
 aside.sidebarWrapper ul.collapsible {
   box-shadow: none;
   border-left: 0;
-  border-right: 0; }
-  aside.sidebarWrapper ul.collapsible.invisible {
-    display: none; }
+  border-right: 0;
+  max-height: aside.sidebarWrapper ul.collapsible;
+    max-height-display: none; }
   aside.sidebarWrapper ul.collapsible div.collapsible-body ul li {
+    background: rgba(0, 0, 0, 0.05);
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem; }
