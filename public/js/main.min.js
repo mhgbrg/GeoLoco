@@ -69,7 +69,7 @@ function initResultMap() {
         disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    
+
     map = new google.maps.Map(document.getElementById("mapCanvas"), myOptions);
 
     // Test cordinates
@@ -124,11 +124,15 @@ function placeResultMarkers(loc, icon) {
         icon: image,
         shape: shape,
         title: 'Hello World',
-        zIndex: 3
+        zIndex: 3,
+        animation: google.maps.Animation.DROP
     });
 
+
+    // Add Marker
     markersArray.push(marker);
 }
+
 
 
 
