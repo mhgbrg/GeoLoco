@@ -1,8 +1,16 @@
 aside.sidebarWrapper header {
+  background-color: #FFF;
+  position: fixed;
   padding: $baseSpacing;
   border-bottom: 1px solid #DDD;
-  right: -$sidebarWidth;
+  right: 0;
+  width: $sidebarWidth;
+  height: 300px;
+  overflow-y: scroll;
+  top: 0;
+  box-sizing: border-box;
   transition: right .75s;
+  z-index: 1338;
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
@@ -10,6 +18,7 @@ aside.sidebarWrapper header {
 }
 
 aside.sidebarWrapper {
+  padding-top: 300px;
   overflow-y: scroll;
   height: 100%;
   position: fixed;
@@ -17,16 +26,27 @@ aside.sidebarWrapper {
   top: 0;
   bottom: 0;
   width: $sidebarWidth;
-  @extend .z-depth-1;
+  @extend .z-depth-2;
 }
 
 aside.sidebarWrapper ul.collapsible {
+  border-top: 0;
   box-shadow: none;
   border-left: 0;
   border-right: 0;
 
   &.invisible {
     display: none;
+  }
+
+  div.collapsible-body ul li {
+    background: rgba(0,0,0, .05);
+    padding-top: $baseSpacing;
+    padding-left: $baseSpacing;
+    padding-right: $baseSpacing;
+    .card {
+      margin: 0;
+    }
   }
 
   div.collapsible-header {

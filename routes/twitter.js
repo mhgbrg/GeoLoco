@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 		var statuses = json.statuses;
 		statuses.forEach(function(current) {
 			result.push({
+				'type': 'twitter',
 				'text': current.text,
 				'username': current.user.screen_name,
 				'name': current.user.name,

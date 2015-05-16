@@ -4,9 +4,18 @@
 
 function loadSidebar(data) {
 
+    $('#sidebarResults').removeClass('invisible');
+
     data.twitter.forEach(function(post) {
         $('#twitterResults').append(
-          "<li>" + post.text + "</li>"
+            "<li>" +
+                "<div class='card'>" +
+                    "<div class='card-content black-text'>" +
+                        "<span class='card-title'>" + post.username + "</span>" +
+                        "<p>" + post.text + "</p>" +
+                    "</div>" +
+                "</div>" +
+            "</li>"
         );
     });
 
@@ -24,8 +33,16 @@ function loadSidebar(data) {
 
     });
 
-    $('#twitterResultsCount').html(data.twitter.length)
-    $('#instagramResultsCount').html(data.instagram.length)
-    $('#nytimesResultsCount').html(data.nytimes.length)
+    data.yikyak.forEach(function(post) {
+        $('#yikyakResults').append(
+            "<li>" + post.text + "</li>"
+        );
+
+    });
+
+    $('#twitterResultsCount').html(data.twitter.length);
+    $('#instagramResultsCount').html(data.instagram.length);
+    $('#yikyakResultsCount').html(data.yikyak.length)
+    $('#nytimesResultsCount').html(data.nytimes.length);
 
 }

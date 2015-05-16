@@ -5,7 +5,7 @@ block search
         input(type="search", placeholder="Search all around the world")#bigSearch
 
 block sidebar
-    header
+    header#header
         h1 GeoLoco
         p.
             It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -37,5 +37,13 @@ block sidebar
                 span.badge#nytimesResultsCount.
             div.collapsible-body
                 ul#nytimesResults
+        li
+            div.collapsible-header
+                img(src="js/icons/yikyak-round.svg").avatar
+                span.
+                    YikYak
+                span.badge#yikyakResultsCount.
+            div.collapsible-body
+                ul#yikyakResults
 block map
     div#mapCanvas
