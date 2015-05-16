@@ -19,7 +19,14 @@ function initMap(lat, lng) {
         initResultMap(event.latLng);
     });
 
-    initResultMap(new google.maps.LatLng(lat, lng))
+    console.log(lat);
+    if ((typeof lat === 'undefined') || (typeof lng === 'undefined')
+        || lat === null || lng === null
+        || lat === "" || lng === "") {
+        
+    } else {
+        initResultMap(new google.maps.LatLng(lat, lng));
+    }
 }
 
 function setupSearch() {
