@@ -8113,7 +8113,7 @@ aside.sidebarWrapper ul.collapsible {
   box-sizing: border-box;
   width: calc(100% - 2*1rem);
   background-color: white;
-  padding: 1rem 0.5rem;
+  padding: 2rem 1rem;
   position: absolute;
   top: 1rem;
   left: 1rem;
