@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    <body onload="initMap()">
+    <div id="map_canvas"></div>
+    form#sendCor(name="sendCor",method="post",action="/api")
+        input#latFld(type="text", placeholder="lng", name="lng")
+        input#lngFld(type="text", placeholder="lat", name="lat")
+        button#btnSubmit(type="submit") Send Lng Lat
+    </body>
