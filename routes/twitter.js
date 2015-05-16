@@ -57,7 +57,7 @@ router.get('/', function(req, res, next) {
 	twitter.getSearch(
 		{
 			'q': '-filter:retweets',
-			'geocode': lat + ',' + lng + ',1mi',
+			'geocode': lat + ',' + lng + ',1km',
 			'count': count
 		}, error, success
 	);
