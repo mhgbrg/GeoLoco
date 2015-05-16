@@ -51,6 +51,15 @@ function deleteOverlays() {
 //*********************************************
 
 function initResultMap() {
+
+   // var socialMediaMarkers[],
+
+    // GET to backend
+   // $.get( "/api?lat=40.76832172749444&lng=-73.9760971069336", function( data ) {
+    //    socialMediaMarkers = data;
+    //});
+
+
     // Change cor to the cor user choose
     var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
     var myOptions = {
@@ -62,20 +71,24 @@ function initResultMap() {
 
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-    var loc = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
-    
-    placeResultMarkers(loc);
+    var center = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
+    var north = new google.maps.LatLng(40.763899, -73.980131);
+    var south = new google.maps.LatLng(40.753899, -73.99013099999999);
+
+    placeResultMarkers(center, "js/icons/fb-icon.svg");
+    placeResultMarkers(north, "js/icons/instagram-icon.svg");
+    placeResultMarkers(south, "js/icons/twitter-icon.svg");
 }
 
 
 
 
-function placeResultMarkers(loc) {
+function placeResultMarkers(loc, icon) {
     // Loop json arry and place markers on the result map
-    deleteOverlays();
+   // deleteOverlays();
 
     var image = {
-        url: 'js/icons/fb-icon.svg',
+        url: icon,
         // This marker is 20 pixels wide by 32 pixels tall.
         //size: new google.maps.Size(20, 20),
         // The origin for this image is 0,0.
