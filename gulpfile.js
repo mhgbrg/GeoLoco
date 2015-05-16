@@ -24,7 +24,7 @@ gulp.task('serve', function() {
  
 // Requires gulp >=v3.5.0
 gulp.task('watch', function () {
-    gulp.watch('sass/app.scss', ['sass']);
+    gulp.watch('sass/**/*.scss', ['sass']);
 });
  
 gulp.task('default', ['sass', 'serve', 'watch']);
