@@ -1,5 +1,9 @@
 aside.sidebarWrapper header {
   padding: $baseSpacing;
+  border-bottom: 1px solid #DDD;
+  right: -$sidebarWidth;
+  transition: right .75s;
+
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
   }

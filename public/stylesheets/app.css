@@ -8074,7 +8074,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 
 aside.sidebarWrapper header {
-  padding: 1rem; }
+  padding: 1rem;
+  border-bottom: 1px solid #DDD;
+  right: -40rem;
+  transition: right 0.75s; }
   aside.sidebarWrapper header h1, aside.sidebarWrapper header h2, aside.sidebarWrapper header h3, aside.sidebarWrapper header h4, aside.sidebarWrapper header h5, aside.sidebarWrapper header h6 {
     margin-top: 0; }
 
