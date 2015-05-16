@@ -3,9 +3,9 @@ var markersArray = [];
 
 function initMap()
 {
-    var latlng = new google.maps.LatLng(41, 29);
+    var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
     var myOptions = {
-        zoom: 10,
+        zoom: 12,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -46,3 +46,6 @@ function deleteOverlays() {
     markersArray.length = 0;
     }
 }
+
+// Functions for adding social media markers
+
