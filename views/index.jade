@@ -1,10 +1,12 @@
 extends layout
 
 block search
-    input(type="text", placeholder="Search all around the world")#bigSearch
+    div.search
+        input(type="search", placeholder="Search all around the world")#bigSearch
 
 block sidebar
-    h2 Sidebar
+    header
+        h2 Sidebar
 
 block map
     div#mapCanvas

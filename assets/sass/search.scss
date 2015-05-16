@@ -1,4 +1,15 @@
 #bigSearch {
-  width: 100%;
-  margin-bottom: 0;
+  $spacing: 2*$baseSpacing;
+
+  font-size: 2rem;
+  box-sizing: border-box;
+  width: calc(100% - 2*#{$spacing});
+  background-color: white;
+  padding: $spacing $spacing/2;
+  position: absolute;
+  top: $spacing;
+  left: $spacing;
+  right: $spacing;
+  z-index: 1;
+  @extend .z-depth-1;
 }

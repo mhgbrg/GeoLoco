@@ -31,3 +31,7 @@ node_modules
 
 # Environment
 .idea
+
+# Generated files
+/public/js/main.min.js
+/public/stylesheets/app.css
