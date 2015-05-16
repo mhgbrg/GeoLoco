@@ -1,4 +1,5 @@
 $(function() {
     initMap();
     //initResultMap();
+    
 });
