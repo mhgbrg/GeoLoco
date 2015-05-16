@@ -9,7 +9,6 @@ video#bgvid {
   z-index: -100;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background: url(polina.jpg) no-repeat;
   background-size: cover;
 }
 
@@ -17,4 +16,8 @@ video#bgvid {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.topPadding {
+  padding-top: 2em;
 }
