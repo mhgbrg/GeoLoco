@@ -12,34 +12,37 @@ router.get('/', function(req, res, next) {
 
 	async.parallel({
 	    twitter: function(callback) {
-	    	var url = 'http://localhost:1337/api/twitter?lat=' + lat + '&lng=' + lng + '&count=100';
+	    	var url = 'http://localhost:1337/api/twitter?lat=' + lat + '&lng=' + lng + '&radius=1km&count=100';
 	    	var options = {
 		        url: url,
 		        method: 'GET'
 		    };
 
+		    console.log(url);
 	    	request(options, function(error, response, body) {
 		        callback(null, JSON.parse(body));
 		    });
 	    },
 	    instagram: function(callback) {
-	        var url = 'http://localhost:1337/api/instagram?lat=' + lat + '&lng=' + lng;
+	        var url = 'http://localhost:1337/api/instagram?lat=' + lat + '&lng=' + lng + '&radius=1km';
 	    	var options = {
 		        url: url,
 		        method: 'GET'
 		    };
 
+		    console.log(url);
 	    	request(options, function(error, response, body) {
 		        callback(null, JSON.parse(body));
 		    });
 	    },
 	    nytimes: function(callback) {
-	        var url = 'http://localhost:1337/api/nytimes?lat=' + lat + '&lng=' + lng + '&distance=10';
+	        var url = 'http://localhost:1337/api/nytimes?lat=' + lat + '&lng=' + lng + '&radius=10';
 	    	var options = {
 		        url: url,
 		        method: 'GET'
 		    };
 
+		    console.log(url);
 	    	request(options, function(error, response, body) {
 		        callback(null, JSON.parse(body));
 		    });
