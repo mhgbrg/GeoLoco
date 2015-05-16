@@ -77,8 +77,8 @@ router.get('/', function(req, res, next) {
 					'snippet': current.snippet,
 					// 'type_of_material': current.type_of_material,
 					'time': current.pub_date,
-					'lat': place.lat + Math.random() / 1000,
-					'lng': place.lng + Math.random() / 1000
+					'lat': place.lat + Math.random() / 100,
+					'lng': place.lng + Math.random() / 100
 				});
 			});
 
@@ -102,6 +102,10 @@ router.get('/', function(req, res, next) {
 	var finalResult = [];
 	getLocations(lat, lng, radius, function(places) {
 		numberOfResults = places.length;
+
+		if (numberOfResults === 0) {
+			res.json([]);
+		}
 
 		places.forEach(function(place){
 			getArticles(place, function(result) {

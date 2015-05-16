@@ -11,9 +11,35 @@ function initMap() {
     };
     map = new google.maps.Map(document.getElementById("mapCanvas"), myOptions);
 
+    setupSearch();
+
     // add a click event handler to the map object
     google.maps.event.addListener(map, "click", function (event) {
         initResultMap(event.latLng);
+    });
+}
+
+function setupSearch() {
+    // Create the search box and link it to the UI element.
+    var input = /** @type {HTMLInputElement} */(document.getElementById('bigSearch'));
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    var searchBox = new google.maps.places.SearchBox(
+        /** @type {HTMLInputElement} */(input));
+
+    // Listen for the event fired when the user selects an item from the
+    // pick list. Retrieve the matching places for that item.
+    google.maps.event.addListener(searchBox, 'places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+            return;
+        }
+
+        // For each place, get the location and init the result map
+        for (var i = 0, place; place = places[i]; i++) {
+            initResultMap(place.geometry.location);
+        }
     });
 }
 
@@ -48,6 +74,16 @@ function initResultMap(latLng) {
     map.set('zoom', 15);
     map.set('center', latLng);
 
+    // Create Map
+    // Change cor to the cor user choose
+    var options = {
+        zoom: 14,
+        center: latLng,
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("mapCanvas"), options);
 }
 
 function createTwitterMarkers(twitterObj) {
