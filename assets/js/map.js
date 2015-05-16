@@ -56,6 +56,7 @@ function initResultMap() {
     var myOptions = {
         zoom: 12,
         center: latlng,
+        disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -66,15 +67,52 @@ function initResultMap() {
     placeResultMarkers(loc);
 }
 
+
+
+
 function placeResultMarkers(loc) {
     // Loop json arry and place markers on the result map
     deleteOverlays();
 
+    var image = {
+        url: 'js/icons/fb-icon.svg',
+        // This marker is 20 pixels wide by 32 pixels tall.
+        //size: new google.maps.Size(20, 20),
+        // The origin for this image is 0,0.
+        origin: new google.maps.Point(0,0),
+        // The anchor for this image is the base of the flagpole at 0,32.
+        anchor: new google.maps.Point(0, 32)
+    };
+
+    // Shapes define the clickable region of the icon.
+    // The type defines an HTML &lt;area&gt; element 'poly' which
+    // traces out a polygon as a series of X,Y points. The final
+    // coordinate closes the poly by connecting to the first
+    // coordinate.
+    var shape = {
+        coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+        type: 'poly'
+    };
+
     var marker = new google.maps.Marker({
         position: loc,
         map: map,
-        title: 'Hello World!'
+        icon: image,
+        shape: shape,
+        title: 'Hello World',
+        zIndex: 3
     });
 
     markersArray.push(marker);
 }
+
+
+
+
+
+
+
+
+
+
+
