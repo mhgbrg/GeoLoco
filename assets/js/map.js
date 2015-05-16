@@ -4,7 +4,7 @@ var markersArray = [];
 function initMap() {
     var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
     var myOptions = {
-        zoom: 12,
+        zoom: 10,
         center: latlng,
         disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -45,7 +45,7 @@ function initResultMap(latLng) {
         createNYTMarkers(data.nytimes);
     });
 
-    map.set('zoom', 14);
+    map.set('zoom', 15);
     map.set('center', latLng);
 
 }
