@@ -32,14 +32,11 @@ function setupSearch() {
     google.maps.event.addListener(searchBox, 'places_changed', function() {
         var places = searchBox.getPlaces();
 
-        if (places.length == 0) {
+        if (places.length != 1) {
             return;
         }
 
-        // For each place, get the location and init the result map
-        for (var i = 0, place; place = places[i]; i++) {
-            initResultMap(place.geometry.location);
-        }
+        initResultMap(places[0].geometry.location);
     });
 }
 
