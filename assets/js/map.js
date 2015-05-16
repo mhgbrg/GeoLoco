@@ -3,6 +3,7 @@ var markersArray = [];
 
 function initMap() {
     var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
+
     var myOptions = {
         zoom: 10,
         center: latlng,
@@ -93,11 +94,11 @@ function initResultMap(latLng) {
 function createMarkers(apiData, icon) {
     apiData.forEach( function(post) {
         var cor = new google.maps.LatLng(post.lat, post.lng);
-        placeResultMarkers(cor, icon);
+        placeResultMarkers(post, cor, icon);
     });
 }
 
-function placeResultMarkers(loc, icon) {
+function placeResultMarkers(geoLocoObj, loc, icon) {
     // Loop json arry and place markers on the result map
    // deleteOverlays();
 
@@ -131,13 +132,13 @@ function placeResultMarkers(loc, icon) {
         animation: google.maps.Animation.DROP
     });
 
+    google.maps.event.addListener(marker, 'click', function() {
+        console.log(geoLocoObj);
+    });
 
     // Add Marker
     markersArray.push(marker);
 }
-
-
-
 
 
 
