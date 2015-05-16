@@ -1,36 +1,45 @@
 var express = require('express');
 var router = express.Router();
-var request = require('request');
+var Twitter = require('twitter-node-client').Twitter;
 
-/* GET api listing. */
 router.get('/', function(req, res, next) {
-	res.send('respond with a resource');
-});
-
-router.post('/', function(req, res, next) {
-	var lat = req.body.lat;
-	var lng = req.body.lng;
+	var lat = req.query.lat;
+	var lng = req.query.lng;
 
 	console.log('lat: ' + lat);
 	console.log('lng: ' + lng);
 });
 
-router.post('/twitter', function(req, res, next) {
-	var lat = req.body.lat;
-	var lng = req.body.lng;
+router.get('/twitter', function(req, res, next) {
+	var error = function (err, response, body) {
+        console.log('ERROR [%s]', err);
+    };
 
-	var url = 'https://api.twitter.com/1.1/search/tweets.json?q=&geocode=' + lat + ',' + lng + ',1mi';
-	console.log('twitter url: ' + url);
+    var success = function (data) {
+        console.log('Data [%s]', data);
+    };
 
-	var options;
-	options.url = url;
-	options.method = 'POST';
+	var config = {
+        "consumerKey": "3RbzvJ30rQDcabzAIOCD8UXZP",
+        "consumerSecret": "rzbJpZ4yuLfXVCRTo0uQ7cVtEoK6p0j8zuE2I9UY5uFgwjn2HV",
+        "accessToken": "3256414203-2IzAtXwcQgispyGrc0wBuHL7XKUfsJBgBEfcyZ7",
+        "accessTokenSecret": "6NcFh5H0n2IKbCnQ3ZuOrV6kAAHP8Hva6s6RHJwz5FHWh",
+        "callBackUrl": "www.henriknilson.com"
+    }
+	var twitter = new Twitter(config);
 
-	request(options, function(error, response, body) {
-		console.log('error: ' + error);
-		console.log('response: ' + response);
-		console.log('body: ' + body);
-	});
+	var lat = req.query.lat;
+	var lng = req.query.lng;
+
+	console.log('lat: ' + lat);
+	console.log('lng: ' + lng);
+
+	twitter.getSearch({
+			'q': '',
+			'geocode': lat + ',' + lng + ',1mi',
+			'count': 10
+		}, error, success
+	);
 });
 
 module.exports = router;
