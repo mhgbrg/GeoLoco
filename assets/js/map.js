@@ -134,6 +134,7 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
 
     google.maps.event.addListener(marker, 'click', function() {
         console.log(geoLocoObj);
+        loadSidebarTop(geoLocoObj);
     });
 
     // Add Marker
