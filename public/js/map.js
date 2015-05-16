@@ -46,6 +46,35 @@ function deleteOverlays() {
     markersArray.length = 0;
     }
 }
+//*********************************************
+//* Functions for adding social media markers *
+//*********************************************
 
-// Functions for adding social media markers
+function initResultMap() {
+    // Change cor to the cor user choose
+    var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
+    var myOptions = {
+        zoom: 12,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
 
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    var loc = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
+    
+    placeResultMarkers(loc);
+}
+
+function placeResultMarkers(loc) {
+    // Loop json arry and place markers on the result map
+    deleteOverlays();
+
+    var marker = new google.maps.Marker({
+      position: loc,
+      map: map,
+      title: 'Hello World!'
+  });
+
+    markersArray.push(marker);
+}
