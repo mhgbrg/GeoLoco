@@ -80,7 +80,6 @@ router.get('/', function(req, res, next) {
 					'time': current.pub_date,
 					'lat': place.lat + (Math.random() - 0.5) / 100,
 					'lng': place.lng + (Math.random() - 0.5) / 100,
-					'url': current.web_url
 				});
 			});
 

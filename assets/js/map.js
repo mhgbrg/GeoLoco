@@ -62,6 +62,7 @@ function initResultMap(latLng) {
     var latFromUser = latLng.lat();
     var lngFromUser = latLng.lng();
 
+    $("#circleoflife").show();
     // GET to backend
     $.get( '/api', {lat: latFromUser, lng: lngFromUser}, function( data ) {
 
@@ -71,7 +72,7 @@ function initResultMap(latLng) {
         var t4 = createMarkers(data.twitter, "js/icons/twitter-icon.svg");
 
         setTimeout(function() {
-            alert('test');
+            $("#circleoflife").hide();
         }, Math.max(t1, t2, t3, t4));
 
         loadSidebar(data);

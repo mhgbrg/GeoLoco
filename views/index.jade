@@ -3,6 +3,17 @@ extends layout
 block search
     div.search
         input(type="search", placeholder="Search all around the world")#bigSearch
+        <div class="preloader-wrapper big active preloader" id="circleoflife">
+        <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+        <div class="circle"></div>
+        </div><div class="gap-patch">
+        <div class="circle"></div>
+        </div><div class="circle-clipper right">
+        <div class="circle"></div>
+        </div>
+        </div>
+        </div>
 
 block sidebar
     header#header

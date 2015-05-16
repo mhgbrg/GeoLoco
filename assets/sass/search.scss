@@ -25,3 +25,16 @@
   @extend .z-depth-1;
 
 }
+
+div.search .preloader {
+  position: absolute;
+  right: 2 * $baseSpacing;
+  top: 2 * $baseSpacing;
+  z-index: 3;
+  width: 2*$baseSpacing;
+  height: 2*$baseSpacing;
+}
+
+#circleoflife {
+  display: none;
+}
