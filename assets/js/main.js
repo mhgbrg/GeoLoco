@@ -1,3 +1,4 @@
 $(function() {
-    initMap();
+    //initMap();
+    initResultMap();
 });
