@@ -8080,16 +8080,17 @@ aside.sidebarWrapper header {
   border-bottom: 1px solid #DDD;
   right: 0;
   width: 40rem;
-  height: 400px;
+  height: 300px;
   overflow-y: scroll;
   top: 0;
   box-sizing: border-box;
-  transition: right 0.75s; }
+  transition: right 0.75s;
+  z-index: 1338; }
   aside.sidebarWrapper header h1, aside.sidebarWrapper header h2, aside.sidebarWrapper header h3, aside.sidebarWrapper header h4, aside.sidebarWrapper header h5, aside.sidebarWrapper header h6 {
     margin-top: 0; }
 
 aside.sidebarWrapper {
-  padding-top: 200px;
+  padding-top: 300px;
   overflow-y: scroll;
   height: 100%;
   position: fixed;

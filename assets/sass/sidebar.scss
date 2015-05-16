@@ -5,11 +5,12 @@ aside.sidebarWrapper header {
   border-bottom: 1px solid #DDD;
   right: 0;
   width: $sidebarWidth;
-  height: 400px;
+  height: 300px;
   overflow-y: scroll;
   top: 0;
   box-sizing: border-box;
   transition: right .75s;
+  z-index: 1338;
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
@@ -17,7 +18,7 @@ aside.sidebarWrapper header {
 }
 
 aside.sidebarWrapper {
-  padding-top: 200px;
+  padding-top: 300px;
   overflow-y: scroll;
   height: 100%;
   position: fixed;
