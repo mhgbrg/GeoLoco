@@ -13,7 +13,7 @@ function loadSidebar(data) {
 
     var count = 0;
     data.twitter.forEach(function(post) {
-        var elem = $('#twitterResults').append(
+        $('#twitterResults').append(
             '<li id="twitter' + count + '">' +
                 "<div class='card'>" +
                     "<div class='card-content black-text'>" +
@@ -34,9 +34,10 @@ function loadSidebar(data) {
         count = count + 1;
     });
 
+    count = 0;
     data.instagram.forEach(function(post) {
         $('#instagramResults').append(
-            "<li>" +
+            '<li id="instagram' + count + '">' +
                 "<div class='card small image-left'>" +
                     "<div class='card-image' style='background-image:url(" + post.images.medium.url + ")'>" +
                         "<img src='" + post.images.medium.url + "'>" +
@@ -51,11 +52,17 @@ function loadSidebar(data) {
             "</li>"
         );
 
+        $('#instagram' + count).click(function() {
+            loadSidebarTop(post);
+        });
+
+        count = count + 1;
     });
 
+    count = 0;
     data.nytimes.forEach(function(post) {
         $('#nytimesResults').append(
-            "<li>" +
+            '<li id="nytimes' + count + '">' +
                 "<div class='card'>" +
                     "<div class='card-content black-text'>" +
                         "<span class='card-title black-text'>" + post.headline + "</span>" +
@@ -67,11 +74,18 @@ function loadSidebar(data) {
                 "</div>" +
             "</li>"
         );
+
+        $('#nytimes' + count).click(function() {
+            loadSidebarTop(post);
+        });
+
+        count = count + 1;
     });
 
+    count = 0;
     data.yikyak.forEach(function(post) {
         $('#yikyakResults').append(
-            "<li>" +
+            '<li id="yikyak' + count + '">' +
             "<div class='card'>" +
             "<div class='card-content black-text'>" +
             "<p class='text'>" + post.text + "</p>" +
@@ -82,6 +96,11 @@ function loadSidebar(data) {
             "</li>"
         );
 
+        $('#yikyak' + count).click(function() {
+            loadSidebarTop(post);
+        });
+
+        count = count + 1;
     });
 
     $('#twitterResultsCount').html(data.twitter.length);
