@@ -85,6 +85,9 @@ function initResultMap(latLng) {
     };
 
     map = new google.maps.Map(document.getElementById("mapCanvas"), options);
+    google.maps.event.addListener(map, "click", function (event) {
+        initResultMap(event.latLng);
+    });
 }
 
 function createTwitterMarkers(twitterObj) {
