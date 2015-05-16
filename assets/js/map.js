@@ -118,7 +118,7 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
     // coordinate closes the poly by connecting to the first
     // coordinate.
     var shape = {
-        coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+        coords: [2, 2, 2, 30, 25, 30, 30, 2],
         type: 'poly'
     };
 
@@ -127,7 +127,6 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
         map: map,
         icon: image,
         shape: shape,
-        title: 'Hello World',
         zIndex: 3,
         animation: google.maps.Animation.DROP
     });
@@ -135,6 +134,10 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
     google.maps.event.addListener(marker, 'click', function() {
         console.log(geoLocoObj);
         loadSidebarTop(geoLocoObj);
+
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function(){ marker.setAnimation(null); }, 1400);
+
     });
 
     // Add Marker
