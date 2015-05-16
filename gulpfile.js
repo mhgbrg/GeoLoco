@@ -4,16 +4,18 @@ var app = require('./app'),
     browserify = require('gulp-browserify'),
     concat = require('gulp-concat');
 
-// gulp.task('browserify', function() {
-//     return gulp.src(['app/src/**/*.js'])
-//         .pipe(browserify())
-//         .pipe(concat('dest.js'))
-//         .pipe(gulp.dest('dist/build'));
-// });
+ gulp.task('js', function() {
+     return gulp.src(['assets/js/map.js', 'assets/js/**/*.js'])
+         .pipe(concat('main.min.js'))
+         .pipe(gulp.dest('public/js/'));
+ });
 
 gulp.task('sass', function() {
-    return gulp.src(['sass/app.scss'])
-        .pipe(sass().on('error', sass.logError))
+    return gulp.src(['assets/sass/app.scss'])
+        .pipe(sass().on('error', function(error) {
+            console.log(error.toString());
+            this.emit('end');
+        }))
         .pipe(gulp.dest('public/stylesheets/'));
 });
  
@@ -24,7 +26,8 @@ gulp.task('serve', function() {
  
 // Requires gulp >=v3.5.0
 gulp.task('watch', function () {
-    gulp.watch('sass/**/*.scss', ['sass']);
+    gulp.watch('assets/sass/**/*.scss', ['sass']);
+    gulp.watch('assets/js/**/*.js', ['js']);
 });
  
-gulp.task('default', ['sass', 'serve', 'watch']);
+gulp.task('default', ['sass', 'js', 'serve', 'watch']);
