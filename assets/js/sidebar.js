@@ -11,9 +11,10 @@ function loadSidebar(data) {
 
     $('#sidebarResults').removeClass('invisible');
 
+    var count = 0;
     data.twitter.forEach(function(post) {
-        $('#twitterResults').append(
-            "<li>" +
+        var elem = $('#twitterResults').append(
+            '<li id="twitter' + count + '">' +
                 "<div class='card'>" +
                     "<div class='card-content black-text'>" +
                         "<span class='card-title black-text'>@" + post.username + "</span>" +
@@ -25,6 +26,12 @@ function loadSidebar(data) {
                 "</div>" +
             "</li>"
         );
+
+        $('#twitter' + count).click(function() {
+            loadSidebarTop(post);
+        });
+
+        count = count + 1;
     });
 
     data.instagram.forEach(function(post) {
