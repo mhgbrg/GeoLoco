@@ -33,6 +33,8 @@ function deleteOverlays() {
 
 function initResultMap(latLng) {
 
+    deleteOverlays();
+
     var latFromUser = latLng.lat();
     var lngFromUser = latLng.lng();
 
@@ -43,16 +45,8 @@ function initResultMap(latLng) {
         createNYTMarkers(data.nytimes);
     });
 
-    // Create Map
-    // Change cor to the cor user choose
-    var options = {
-        zoom: 14,
-        center: latlng,
-        disableDefaultUI: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    map = new google.maps.Map(document.getElementById("mapCanvas"), options);
+    map.set('zoom', 14);
+    map.set('center', latLng);
 
 }
 
