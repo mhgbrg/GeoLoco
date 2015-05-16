@@ -11,6 +11,7 @@ var api = require('./routes/api');
 var twitter = require('./routes/twitter');
 var instagram = require('./routes/instagram');
 var nytimes = require('./routes/nytimes');
+var yikyak = require('./routes/yikyak');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/api', api);
 app.use('/api/instagram', instagram);
 app.use('/api/twitter', twitter);
 app.use('/api/nytimes', nytimes);
+app.use('/api/yikyak', yikyak);
 
 /****************
 ERROR HANDLING
