@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Twitter = require('twitter-node-client').Twitter;
+var request = require('request');
 
 router.get('/', function(req, res, next) {
 	var lat = req.query.lat;
