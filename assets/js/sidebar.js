@@ -16,7 +16,7 @@ function loadSidebar(data) {
             "<li>" +
                 "<div class='card'>" +
                     "<div class='card-content black-text'>" +
-                        "<span class='card-title black-text'>@" + post.username + "</span>" +
+                    "<span class='card-title black-text'><a href='http://www.twitter.com/" + post.username + "'>@" + post.username + "</a></span>" +
                         "<p class='text'>" + post.text + "</p>" +
                         "<span class='card-detail'>" + new Date(post.time).toLocaleString() + "</span>" +
                         "<span class='card-detail'>" + post.place + "</span>" +
