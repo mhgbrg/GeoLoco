@@ -4,6 +4,11 @@
 
 function loadSidebar(data) {
 
+    $('#twitterResults').empty();
+    $('#nytimesResults').empty();
+    $('#instagramResults').empty();
+    $('#yikyakResults').empty();
+
     $('#sidebarResults').removeClass('invisible');
 
     data.twitter.forEach(function(post) {
@@ -11,8 +16,11 @@ function loadSidebar(data) {
             "<li>" +
                 "<div class='card'>" +
                     "<div class='card-content black-text'>" +
-                        "<span class='card-title'>" + post.username + "</span>" +
-                        "<p>" + post.text + "</p>" +
+                        "<span class='card-title black-text'>@" + post.username + "</span>" +
+                        "<p class='text'>" + post.text + "</p>" +
+                        "<span class='card-detail'>" + new Date(post.time).toLocaleString() + "</span>" +
+                        "<span class='card-detail'>" + post.place + "</span>" +
+                        "<span class='card-detail'>" + post.lat + ", " + post.lng + "</span>" +
                     "</div>" +
                 "</div>" +
             "</li>"
@@ -21,7 +29,19 @@ function loadSidebar(data) {
 
     data.instagram.forEach(function(post) {
         $('#instagramResults').append(
-            "<li>" + post.caption + "</li>"
+            "<li>" +
+                "<div class='card small image-left'>" +
+                    "<div class='card-image' style='background-image:url(" + post.images.medium.url + ")'>" +
+                        "<img src='" + post.images.medium.url + "'>" +
+                    "</div>" +
+                    "<div class='card-content'>" +
+                        "<span class='card-title black-text'>@" + post.username + "</span>" +
+                        "<p class='text'>" + post.caption + "</p>" +
+                        "<span class='card-detail'>" + new Date(post.time).toLocaleString() + "</span>" +
+                        "<span class='card-detail'>" + post.lat + ", " + post.lng + "</span>" +
+                    "</div>" +
+                "</div>" +
+            "</li>"
         );
 
     });

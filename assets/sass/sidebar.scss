@@ -30,6 +30,7 @@ aside.sidebarWrapper {
 }
 
 aside.sidebarWrapper ul.collapsible {
+  margin-top: 0;
   border-top: 0;
   box-shadow: none;
   border-left: 0;
@@ -39,13 +40,31 @@ aside.sidebarWrapper ul.collapsible {
     display: none;
   }
 
+  div.collapsible-body ul {
+    padding-bottom: 1rem;
+  }
+
   div.collapsible-body ul li {
     background: rgba(0,0,0, .05);
     padding-top: $baseSpacing;
     padding-left: $baseSpacing;
     padding-right: $baseSpacing;
     .card {
+      .card-title {
+        display: block;
+      }
+      .card-detail {
+        color: #BBB;
+        font-size: .875rem;
+        & + .card-detail {
+          margin-left: 1rem;
+        }
+      }
       margin: 0;
+      p.text {
+        padding: 0;
+        margin-bottom: 1rem;
+      }
     }
   }
 
@@ -62,4 +81,30 @@ aside.sidebarWrapper ul.collapsible {
       background-color: rgba(0,0,0,.05);
     }
   }
+
+  div.card.image-left {
+    display: table;
+    width: 100%;
+
+    &.small {
+      height: auto;
+      .card-content {
+        height: auto;
+      }
+    }
+    .card-image {
+      display: table-cell;
+      width: 30%;
+      background-size: cover;
+      background-position: center;
+      img {
+        display: none;
+      }
+    }
+    .card-content {
+      display: table-cell;
+      width: 70%;
+    }
+  }
+
 }
