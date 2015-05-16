@@ -8074,12 +8074,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 
 aside.sidebarWrapper header {
+  background-color: #FFF;
   position: fixed;
   padding: 1rem;
   border-bottom: 1px solid #DDD;
   right: 0;
   width: 40rem;
-  height: 200px;
+  height: 400px;
   overflow-y: scroll;
   top: 0;
   box-sizing: border-box;
@@ -8098,11 +8099,12 @@ aside.sidebarWrapper {
   width: 40rem; }
 
 aside.sidebarWrapper ul.collapsible {
+  border-top: 0;
   box-shadow: none;
   border-left: 0;
-  border-right: 0;
-  max-height: aside.sidebarWrapper ul.collapsible;
-    max-height-display: none; }
+  border-right: 0; }
+  aside.sidebarWrapper ul.collapsible.invisible {
+    display: none; }
   aside.sidebarWrapper ul.collapsible div.collapsible-body ul li {
     background: rgba(0, 0, 0, 0.05);
     padding-top: 1rem;
