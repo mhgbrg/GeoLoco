@@ -13,3 +13,15 @@
   @extend .z-depth-1;
 
 }
+
+#bigSearchLanding {
+
+  font-size: 2rem;
+  box-sizing: border-box;
+  width: calc(100% - 2*#{$baseSpacing});
+  background-color: white;
+  padding: 2*$baseSpacing $baseSpacing;
+  z-index: 1;
+  @extend .z-depth-1;
+
+}

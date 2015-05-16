@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/app.css')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+        script(src='http://maps.google.com/maps/api/js?sensor=false&libraries=places')
+        script(src='/js/materialize.min.js')
+    body
+
+        <video autoplay loop poster="polina.jpg" id="bgvid">
+        <source src="video/seattleferryride.webm" type="video/webm">
+        <source src="video/seattleferryride.mp4" type="video/mp4">
+        </video>
+
+        div.centerLanding
+            div.row
+                div.col.s12
+                   h1.center.white-text GeoLoco
+            div.row.centerLanding
+                div.col.s8.offset-s2
+                    input(type="search", placeholder="Search all around the world")#bigSearchLanding
