@@ -104,8 +104,6 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
     // Loop json arry and place markers on the result map
    // deleteOverlays();
 
-   console.log('place');
-
     var image = {
         url: icon,
         // This marker is 20 pixels wide by 32 pixels tall.
