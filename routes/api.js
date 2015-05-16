@@ -32,6 +32,17 @@ router.get('/', function(req, res, next) {
 	    	request(options, function(error, response, body) {
 		        callback(null, JSON.parse(body));
 		    });
+	    },
+	    nytimes: function(callback) {
+	        var url = 'http://localhost:1337/api/nytimes?lat=' + lat + '&lng=' + lng + '&distance=10';
+	    	var options = {
+		        url: url,
+		        method: 'GET'
+		    };
+
+	    	request(options, function(error, response, body) {
+		        callback(null, JSON.parse(body));
+		    });
 	    }
 	}, function(err, results) {
 		res.json(results);

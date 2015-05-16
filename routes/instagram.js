@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
     var lat = req.query.lat;
     var lng = req.query.lng;
     var cid = "984943bd8fe74b70b0959b42494cd294";
-    var url = 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lng + '&client_id=' + cid;
+    var url = 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lng + '&distance=1km&client_id=' + cid;
     var options = {
         url: url,
         method: 'GET'
