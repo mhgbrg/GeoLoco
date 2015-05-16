@@ -8,6 +8,7 @@ var debug = require('debug');
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
+var twitter = require('./routes/twitter');
 
 var instagram = require('./routes/instagram');
 
@@ -35,6 +36,7 @@ ROUTING
 app.use('/', routes);
 app.use('/api', api);
 app.use('/api/instagram', instagram);
+app.use('/api/twitter', twitter);
 
 /****************
 ERROR HANDLING
