@@ -52,32 +52,45 @@ function deleteOverlays() {
 
 function initResultMap() {
 
-   // var socialMediaMarkers[],
+    var socialMediaObjects = [];
 
     // GET to backend
-   // $.get( "/api?lat=40.76832172749444&lng=-73.9760971069336", function( data ) {
-    //    socialMediaMarkers = data;
-    //});
+    $.get( "/api?lat=40.76832172749444&lng=-73.9760971069336", function( data ) {
+        createInstagramMarkers(data.instagram);
+        createTwitterMarkers(data.twitter);
+    });
 
-
+    // Create Map
     // Change cor to the cor user choose
     var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
     var myOptions = {
-        zoom: 12,
+        zoom: 14,
         center: latlng,
         disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-
+    
     map = new google.maps.Map(document.getElementById("mapCanvas"), myOptions);
 
+    // Test cordinates
     var center = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
     var north = new google.maps.LatLng(40.763899, -73.980131);
     var south = new google.maps.LatLng(40.753899, -73.99013099999999);
 
-    placeResultMarkers(center, "js/icons/fb-icon.svg");
-    placeResultMarkers(north, "js/icons/instagram-icon.svg");
-    placeResultMarkers(south, "js/icons/twitter-icon.svg");
+}
+
+function createTwitterMarkers(twitterObj) {
+    for(var j = 0; j<twitterObj.length; j++) {
+        var cor = new google.maps.LatLng(twitterObj[j].lat, twitterObj[j].lng);
+        placeResultMarkers(cor, "js/icons/twitter-icon.svg");
+    }
+}
+
+function createInstagramMarkers(instaObj) {
+    for(var j = 0; j<instaObj.length; j++) {
+        var cor = new google.maps.LatLng(instaObj[j].lat, instaObj[j].lng);
+        placeResultMarkers(cor, "js/icons/instagram-icon.svg");
+    }
 }
 
 
