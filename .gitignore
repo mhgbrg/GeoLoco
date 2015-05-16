@@ -28,3 +28,6 @@ node_modules
 
 # Trash
 .DS_Store
+
+# Environment
+.idea
