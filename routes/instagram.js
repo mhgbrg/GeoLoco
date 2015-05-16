@@ -22,6 +22,7 @@ router.get('/', function(req, res, next) {
 
         posts.forEach(function(post) {
             result.push({
+                'type': 'instagram',
                 username: post.user.username,
                 caption: post.caption !== null ? post.caption.text : '',
                 lat: post.location.latitude,

@@ -100,6 +100,7 @@ router.get('/', function(req, res, next) {
 
 		statuses.forEach(function(current) {
 			result.push({
+				'type': 'yikyak',
 				'text': current.message,
 				'lat': current.latitude,
 				'lng': current.longitude,

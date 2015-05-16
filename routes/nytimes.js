@@ -72,6 +72,7 @@ router.get('/', function(req, res, next) {
 
 			articles.forEach(function(current) {
 				result.push({
+					'type': 'nytimes',
 					'url': current.web_url,
 					'headline': current.headline.main,
 					'snippet': current.snippet,
