@@ -7,8 +7,10 @@ var bodyParser = require('body-parser');
 var debug = require('debug');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var api = require('./routes/api');
+var twitter = require('./routes/twitter');
+
+var instagram = require('./routes/instagram');
 
 var app = express();
 
@@ -32,8 +34,9 @@ ROUTING
 ****************/
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/api', api);
+app.use('/api/instagram', instagram);
+app.use('/api/twitter', twitter);
 
 /****************
 ERROR HANDLING
