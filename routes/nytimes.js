@@ -103,6 +103,10 @@ router.get('/', function(req, res, next) {
 	getLocations(lat, lng, radius, function(places) {
 		numberOfResults = places.length;
 
+		if (numberOfResults === 0) {
+			res.json([]);
+		}
+
 		places.forEach(function(place){
 			getArticles(place, function(result) {
 				finalResult = finalResult.concat(result);
