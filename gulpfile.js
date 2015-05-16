@@ -24,9 +24,6 @@ gulp.task('serve', function() {
  
 // Requires gulp >=v3.5.0
 gulp.task('watch', function () {
-    livereloadServer.listen(35729, function (err) {
-        if (err) return console.log(err);
-    });
     gulp.watch('sass/app.scss', ['sass']);
 });
  
