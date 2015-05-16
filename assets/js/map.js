@@ -1,7 +1,7 @@
 var map;
 var markersArray = [];
 
-function initMap() {
+function initMap(lat, lng) {
     var latlng = new google.maps.LatLng(40.76832172749444, -73.9760971069336);
 
     var myOptions = {
@@ -18,6 +18,8 @@ function initMap() {
     google.maps.event.addListener(map, "click", function (event) {
         initResultMap(event.latLng);
     });
+
+    initResultMap(new google.maps.LatLng(lat, lng))
 }
 
 function setupSearch() {
