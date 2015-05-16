@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('underscore');
 
 var uuid = require('node-uuid');
 var request = require('request');
@@ -102,8 +103,8 @@ router.get('/', function(req, res, next) {
 			result.push({
 				'type': 'yikyak',
 				'text': current.message,
-				'lat': current.latitude,
-				'lng': current.longitude,
+				'lat': current.latitude + (Math.random() - 0.5) / 50,
+				'lng': current.longitude + (Math.random() - 0.5) / 50,
 				'time': new Date(current.time),
 			});
 		});
@@ -113,6 +114,7 @@ router.get('/', function(req, res, next) {
 
 	registerUser(lat, lng, function() {
 		getMessages(lat, lng, function(messages) {
+			messages = _.first(messages, 50);
 			res.json(parse(messages));
 		});
 	});
