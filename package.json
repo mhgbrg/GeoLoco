@@ -21,6 +21,7 @@
     "gulp-embedlr": "^0.5.2",
     "gulp-sass": "^2.0.1",
     "node-uuid": "^1.4.3",
-    "request": "^2.55.0"
+    "request": "^2.55.0",
+    "twitter-node-client": "0.0.6"
   }
 }
