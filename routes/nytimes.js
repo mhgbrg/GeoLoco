@@ -78,8 +78,8 @@ router.get('/', function(req, res, next) {
 					'snippet': current.snippet,
 					// 'type_of_material': current.type_of_material,
 					'time': current.pub_date,
-					'lat': place.lat + Math.random() / 100,
-					'lng': place.lng + Math.random() / 100,
+					'lat': place.lat + (Math.random() - 0.5) / 100,
+					'lng': place.lng + (Math.random() - 0.5) / 100,
 					'url': current.web_url
 				});
 			});
