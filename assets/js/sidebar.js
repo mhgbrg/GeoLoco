@@ -11,10 +11,9 @@ function loadSidebar(data) {
 
     $('#sidebarResults').removeClass('invisible');
 
-    var count = 0;
     data.twitter.forEach(function(post) {
         $('#twitterResults').append(
-            '<li id="twitter' + count + '">' +
+            "<li>" +
                 "<div class='card'>" +
                     "<div class='card-content black-text'>" +
                         "<span class='card-title black-text'>@" + post.username + "</span>" +
@@ -26,18 +25,11 @@ function loadSidebar(data) {
                 "</div>" +
             "</li>"
         );
-
-        $('#twitter' + count).click(function() {
-            loadSidebarTop(post);
-        });
-
-        count = count + 1;
     });
 
-    count = 0;
     data.instagram.forEach(function(post) {
         $('#instagramResults').append(
-            '<li id="instagram' + count + '">' +
+            "<li>" +
                 "<div class='card small image-left'>" +
                     "<div class='card-image' style='background-image:url(" + post.images.medium.url + ")'>" +
                         "<img src='" + post.images.medium.url + "'>" +
@@ -51,18 +43,11 @@ function loadSidebar(data) {
                 "</div>" +
             "</li>"
         );
-
-        $('#instagram' + count).click(function() {
-            loadSidebarTop(post);
-        });
-
-        count = count + 1;
     });
 
-    count = 0;
     data.nytimes.forEach(function(post) {
         $('#nytimesResults').append(
-            '<li id="nytimes' + count + '">' +
+            "<li>" +
                 "<div class='card'>" +
                     "<div class='card-content black-text'>" +
                         "<span class='card-title black-text'>" + post.headline + "</span>" +
@@ -74,18 +59,11 @@ function loadSidebar(data) {
                 "</div>" +
             "</li>"
         );
-
-        $('#nytimes' + count).click(function() {
-            loadSidebarTop(post);
-        });
-
-        count = count + 1;
     });
 
-    count = 0;
     data.yikyak.forEach(function(post) {
         $('#yikyakResults').append(
-            '<li id="yikyak' + count + '">' +
+            "<li>" +
             "<div class='card'>" +
             "<div class='card-content black-text'>" +
             "<p class='text'>" + post.text + "</p>" +
@@ -95,12 +73,6 @@ function loadSidebar(data) {
             "</div>" +
             "</li>"
         );
-
-        $('#yikyak' + count).click(function() {
-            loadSidebarTop(post);
-        });
-
-        count = count + 1;
     });
 
     $('#twitterResultsCount').html(data.twitter.length);
