@@ -6,6 +6,8 @@ aside.sidebarWrapper header {
 }
 
 aside.sidebarWrapper {
+  overflow-y: scroll;
+  height: 100%;
   position: fixed;
   right: 0;
   top: 0;
@@ -18,7 +20,19 @@ aside.sidebarWrapper ul.collapsible {
   box-shadow: none;
   border-left: 0;
   border-right: 0;
+
+  &.invisible {
+    display: none;
+  }
+
   div.collapsible-header {
+    img.avatar {
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      vertical-align: middle;
+      margin-right: 1rem;
+    }
     transition: background-color $transition;
     &:hover {
       background-color: rgba(0,0,0,.05);

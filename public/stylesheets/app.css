@@ -8074,11 +8074,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 
 aside.sidebarWrapper header {
-  padding: 2rem; }
+  padding: 1rem; }
   aside.sidebarWrapper header h1, aside.sidebarWrapper header h2, aside.sidebarWrapper header h3, aside.sidebarWrapper header h4, aside.sidebarWrapper header h5, aside.sidebarWrapper header h6 {
     margin-top: 0; }
 
 aside.sidebarWrapper {
+  overflow-y: scroll;
+  height: 100%;
   position: fixed;
   right: 0;
   top: 0;
@@ -8089,8 +8091,16 @@ aside.sidebarWrapper ul.collapsible {
   box-shadow: none;
   border-left: 0;
   border-right: 0; }
+  aside.sidebarWrapper ul.collapsible.invisible {
+    display: none; }
   aside.sidebarWrapper ul.collapsible div.collapsible-header {
     transition: background-color 0.25s; }
+    aside.sidebarWrapper ul.collapsible div.collapsible-header img.avatar {
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      vertical-align: middle;
+      margin-right: 1rem; }
     aside.sidebarWrapper ul.collapsible div.collapsible-header:hover {
       background-color: rgba(0, 0, 0, 0.05); }
 
@@ -8101,13 +8111,13 @@ aside.sidebarWrapper ul.collapsible {
 #bigSearch {
   font-size: 2rem;
   box-sizing: border-box;
-  width: calc(100% - 2*2rem);
+  width: calc(100% - 2*1rem);
   background-color: white;
-  padding: 2rem 1rem;
+  padding: 1rem 0.5rem;
   position: absolute;
-  top: 2rem;
-  left: 2rem;
-  right: 2rem;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
   z-index: 1; }
 
 html,

@@ -12,14 +12,30 @@ block sidebar
         h3 How do I use it?
         p.
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
-    ul.collapsible(data-collapsible="expandable")
+    ul.invisible.collapsible(data-collapsible="expandable")#sidebarResults
         li
             div.collapsible-header
-                i.mdi-image-filter-drama
-                | First
+                img(src="js/icons/twitter-round.svg").avatar
+                span.
+                    Twitter
+                span.badge#twitterResultsCount.
             div.collapsible-body
-                p.
-                    Lorem ipsum dolor sit amet
-
+                ul#twitterResults
+        li
+            div.collapsible-header
+                img(src="js/icons/instagram-round.svg").avatar
+                span.
+                    Instagram
+                span.badge#instagramResultsCount.
+            div.collapsible-body
+                ul#instagramResults
+        li
+            div.collapsible-header
+                img(src="js/icons/nyt-round.svg").avatar
+                span.
+                    New York Times
+                span.badge#nytimesResultsCount.
+            div.collapsible-body
+                ul#nytimesResults
 block map
     div#mapCanvas

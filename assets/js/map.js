@@ -69,6 +69,7 @@ function initResultMap(latLng) {
         createInstagramMarkers(data.instagram);
         createTwitterMarkers(data.twitter);
         createNYTMarkers(data.nytimes);
+        loadSidebar(data);
     });
 
     map.set('zoom', 15);
