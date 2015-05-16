@@ -92,15 +92,19 @@ function initResultMap(latLng) {
 }
 
 function createMarkers(apiData, icon) {
+    var timeout = 0;
     apiData.forEach( function(post) {
         var cor = new google.maps.LatLng(post.lat, post.lng);
-        placeResultMarkers(post, cor, icon);
+        window.setTimeout(function() {placeResultMarkers(post, cor, icon)}, timeout);
+        timeout = timeout + Math.random() * 100;
     });
 }
 
 function placeResultMarkers(geoLocoObj, loc, icon) {
     // Loop json arry and place markers on the result map
    // deleteOverlays();
+
+   console.log('place');
 
     var image = {
         url: icon,
@@ -127,8 +131,8 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
         map: map,
         icon: image,
         shape: shape,
-        zIndex: 3,
-        animation: google.maps.Animation.DROP
+        zIndex: 3
+        // animation: google.maps.Animation.DROP
     });
 
     google.maps.event.addListener(marker, 'click', function() {
