@@ -15,15 +15,12 @@
     "serve-favicon": "~2.2.0"
   },
   "devDependencies": {
-    "connect-livereload": "^0.5.3",
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.5.2",
     "gulp-embedlr": "^0.5.2",
-    "gulp-livereload": "^3.8.0",
     "gulp-sass": "^2.0.1",
     "node-uuid": "^1.4.3",
     "request": "^2.55.0",
-    "tiny-lr": "^0.1.5"
   }
 }
