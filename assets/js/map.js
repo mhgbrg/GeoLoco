@@ -73,19 +73,9 @@ function initResultMap(latLng) {
         loadSidebar(data);
     });
 
-    map.set('zoom', 15);
+    map.set('zoom', 16);
     map.set('center', latLng);
 
-    // Create Map
-    // Change cor to the cor user choose
-    var options = {
-        zoom: 14,
-        center: latLng,
-        disableDefaultUI: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    map = new google.maps.Map(document.getElementById("mapCanvas"), options);
     google.maps.event.addListener(map, "click", function (event) {
         initResultMap(event.latLng);
     });

@@ -67,7 +67,6 @@ aside.sidebarWrapper ul.collapsible {
       }
     }
   }
-
   div.collapsible-header {
     img.avatar {
       border-radius: 50%;
@@ -107,4 +106,48 @@ aside.sidebarWrapper ul.collapsible {
     }
   }
 
+}
+
+#header {
+  .card {
+    .card-title {
+      display: block;
+    }
+    .card-detail {
+      color: #BBB;
+      font-size: .875rem;
+      & + .card-detail {
+        margin-left: 1rem;
+      }
+    }
+    margin: 0;
+    p.text {
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+  }
+  div.card.image-left {
+    display: table;
+    width: 100%;
+
+    &.small {
+      height: auto;
+      .card-content {
+        height: auto;
+      }
+    }
+    .card-image {
+      display: table-cell;
+      width: 30%;
+      background-size: cover;
+      background-position: center;
+      img {
+        display: none;
+      }
+    }
+    .card-content {
+      display: table-cell;
+      width: 70%;
+    }
+  }
 }
