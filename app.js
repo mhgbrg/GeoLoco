@@ -9,8 +9,8 @@ var debug = require('debug');
 var routes = require('./routes/index');
 var api = require('./routes/api');
 var twitter = require('./routes/twitter');
-
 var instagram = require('./routes/instagram');
+var nytimes = require('./routes/nytimes');
 
 var app = express();
 
@@ -37,6 +37,7 @@ app.use('/', routes);
 app.use('/api', api);
 app.use('/api/instagram', instagram);
 app.use('/api/twitter', twitter);
+app.use('/api/nytimes', nytimes);
 
 /****************
 ERROR HANDLING

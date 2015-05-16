@@ -27,13 +27,10 @@ router.get('/', function(req, res, next) {
 	};
 
 	var error = function (err, response, body) {
-        console.log('ERROR [%s]', err);
         res.send('Error: ' + err);
     };
 
     var success = function (data) {
-        // console.log('Data [%s]', data);
-        // res.json(JSON.parse(data));
         var result = parse(data);
         res.json(result);
     };
@@ -49,15 +46,13 @@ router.get('/', function(req, res, next) {
 
 	var lat = req.query.lat;
 	var lng = req.query.lng;
+	var radius = req.query.radius;
 	var count = req.query.count;
-
-	console.log('lat: ' + lat);
-	console.log('lng: ' + lng);
 
 	twitter.getSearch(
 		{
 			'q': '-filter:retweets',
-			'geocode': lat + ',' + lng + ',1mi',
+			'geocode': lat + ',' + lng + ',' + radius,
 			'count': count
 		}, error, success
 	);

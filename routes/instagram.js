@@ -3,11 +3,12 @@ var router = express.Router();
 var request = require('request');
 
 router.get('/', function(req, res, next) {
-    console.log('REQUEST: instagram');
     var lat = req.query.lat;
     var lng = req.query.lng;
+    var radius = req.query.radius;
+
     var cid = "984943bd8fe74b70b0959b42494cd294";
-    var url = 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lng + '&client_id=' + cid;
+    var url = 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lng + '&distance=' + radius + '&client_id=' + cid;
     var options = {
         url: url,
         method: 'GET'
@@ -40,6 +41,7 @@ router.get('/', function(req, res, next) {
 
     };
 
+    console.log(url);
     request(options, function(error, response, body) {
         res.json(parse(body));
     });

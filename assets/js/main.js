@@ -1,4 +1,4 @@
 $(function() {
-    //initMap();
-    initResultMap();
+    initMap();
+    //initResultMap();
 });
