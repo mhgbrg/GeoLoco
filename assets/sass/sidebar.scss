@@ -1,6 +1,6 @@
 aside.sidebarWrapper header {
   padding: $baseSpacing;
-  border-bottom: 1px solid #DDD;
+  //border-bottom: 1px solid #DDD;
   right: -$sidebarWidth;
   transition: right .75s;
 
@@ -17,7 +17,7 @@ aside.sidebarWrapper {
   top: 0;
   bottom: 0;
   width: $sidebarWidth;
-  @extend .z-depth-1;
+  border-left: 1px solid #DDD;
 }
 
 aside.sidebarWrapper ul.collapsible {
@@ -27,6 +27,15 @@ aside.sidebarWrapper ul.collapsible {
 
   &.invisible {
     display: none;
+  }
+
+  div.collapsible-body ul li {
+    padding-top: $baseSpacing;
+    padding-left: $baseSpacing;
+    padding-right: $baseSpacing;
+    .card {
+      margin: 0;
+    }
   }
 
   div.collapsible-header {

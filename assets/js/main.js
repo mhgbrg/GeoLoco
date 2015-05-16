@@ -2,7 +2,7 @@ $(function() {
     initMap();
     //initResultMap();
 
-    $('#bigSearch').css({'top': '32px');
-    $('#sidebarWrapper').right("0");
+    $('#bigSearch').css({'top': '32px'});
+    $('#sidebarWrapper').css({'right': '0'});
 
 });
