@@ -60,5 +60,6 @@ function loadSidebarTop(obj) {
 function resizeHeader() {
 	var h = $("#spotlightHeader").height() + $('div#currentCard').outerHeight() + 20;
 	$('#header').height(h);
-	$('.sidebarWrapper').css({"padding-top": $('div#currentCard').height() + 100});
+	// $('.sidebarWrapper').css({"padding-top": $('div#currentCard').height() + 100});
+	$('.sidebarWrapper').animate({ scrollTop: 0 }, "fast");
 }
