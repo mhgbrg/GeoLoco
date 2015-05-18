@@ -5,13 +5,13 @@ function loadSidebarTop(obj) {
 
 	if (obj.type === 'twitter') {
 		$('#header').append(
-			"<div class='card' id='currentCard'>" +
+			"<div class='card twitter-blue' id='currentCard'>" +
 			"<div class='card-content black-text'>" +
-			"<span class='card-title black-text'><a href='http://www.twitter.com/" + obj.username + "'>@" + obj.username + "</a></span>" +
+			"<span class='card-title'><a class='white-text' href='http://www.twitter.com/" + obj.username + "'>@" + obj.username + "</a></span>" +
 			"<p class='text'>" + obj.text + "</p>" +
-			"<span class='card-detail'>" + new Date(obj.time).toLocaleString() + "</span>" +
-			"<span class='card-detail'>" + obj.place + "</span>" +
-			"<span class='card-detail'>" + obj.lat + ", " + obj.lng + "</span>" +
+			"<span class='card-detail white-text'>" + new Date(obj.time).toLocaleString() + "</span>" +
+			"<span class='card-detail white-text'>" + obj.place + "</span>" +
+			"<span class='card-detail white-text'>" + obj.lat + ", " + obj.lng + "</span>" +
 			"</div>" +
 			"</div>"
 		);

@@ -21,7 +21,7 @@ gulp.task('sass', function() {
  
 gulp.task('serve', function() {
   // Listens to /public/
-    app.listen(1337);
+    app.listen(process.env.PORT || 1337);
 });
  
 // Requires gulp >=v3.5.0

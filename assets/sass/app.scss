@@ -6,11 +6,11 @@ $twitter-blue: #20B8FF;
 $instagram-beige: #E2DED3;
 
 @import 'materialize';
-
 @import 'sidebar';
 @import 'map';
 @import 'search';
 @import 'videobg';
+
 html,
 body {
   height: 100%;
@@ -39,4 +39,8 @@ h1.geoLoco {
   font-size: 10em;
   padding-bottom: 0.3em;
   color: #d3d3d3;
+}
+
+.twitter-blue {
+  background-color: $twitter-blue;
 }
