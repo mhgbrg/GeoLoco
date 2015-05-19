@@ -10,9 +10,11 @@ router.get('/', function(req, res, next) {
 	console.log('lat: ' + lat);
 	console.log('lng: ' + lng);
 
+	var baseUrl = req.get('host');
+
 	async.parallel({
 	    twitter: function(callback) {
-	    	var url = 'http://localhost:1337/api/twitter?lat=' + lat + '&lng=' + lng + '&radius=1km&count=100';
+	    	var url = 'http://' + baseUrl + '/api/twitter?lat=' + lat + '&lng=' + lng + '&radius=1km&count=100';
 	    	var options = {
 		        url: url,
 		        method: 'GET'
@@ -24,7 +26,7 @@ router.get('/', function(req, res, next) {
 		    });
 	    },
 	    instagram: function(callback) {
-	        var url = 'http://localhost:1337/api/instagram?lat=' + lat + '&lng=' + lng + '&radius=1km';
+	        var url = 'http://' + baseUrl + '/api/instagram?lat=' + lat + '&lng=' + lng + '&radius=1km';
 	    	var options = {
 		        url: url,
 		        method: 'GET'
@@ -36,7 +38,7 @@ router.get('/', function(req, res, next) {
 		    });
 	    },
 	    nytimes: function(callback) {
-	        var url = 'http://localhost:1337/api/nytimes?lat=' + lat + '&lng=' + lng + '&radius=10';
+	        var url = 'http://' + baseUrl + '/api/nytimes?lat=' + lat + '&lng=' + lng + '&radius=10';
 	    	var options = {
 		        url: url,
 		        method: 'GET'
@@ -48,7 +50,7 @@ router.get('/', function(req, res, next) {
 		    });
 	    },
 	    yikyak: function(callback) {
-	        var url = 'http://localhost:1337/api/yikyak?lat=' + lat + '&lng=' + lng;
+	        var url = 'http://' + baseUrl + '/api/yikyak?lat=' + lat + '&lng=' + lng;
 	    	var options = {
 		        url: url,
 		        method: 'GET'
