@@ -4,7 +4,7 @@ var Twitter = require('twitter-node-client').Twitter;
 
 router.get('/', function(req, res, next) {
 	console.log('REQUEST: twitter');
-	
+
 	var parse = function (data) {
 		var json = JSON.parse(data);
 
@@ -37,11 +37,11 @@ router.get('/', function(req, res, next) {
     };
 
 	var config = {
-        "consumerKey": "3RbzvJ30rQDcabzAIOCD8UXZP",
-        "consumerSecret": "rzbJpZ4yuLfXVCRTo0uQ7cVtEoK6p0j8zuE2I9UY5uFgwjn2HV",
-        "accessToken": "3256414203-2IzAtXwcQgispyGrc0wBuHL7XKUfsJBgBEfcyZ7",
-        "accessTokenSecret": "6NcFh5H0n2IKbCnQ3ZuOrV6kAAHP8Hva6s6RHJwz5FHWh",
-        "callBackUrl": "www.henriknilson.com"
+        "consumerKey": process.env.TWITTER_CONSUMERKEY,
+        "consumerSecret": process.env.TWITTER_CONSUMERSECRET,
+        "accessToken": process.env.TWITTER_ACCESSTOKENSECRET,
+        "accessTokenSecret": process.env.TWITTER_ACCESSTOKENSECRET,
+        "callBackUrl": process.env.TWITTER_CALLBACKURL
     }
 	var twitter = new Twitter(config);
 

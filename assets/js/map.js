@@ -19,11 +19,10 @@ function initMap(lat, lng) {
         initResultMap(event.latLng);
     });
 
-    console.log(lat);
     if ((typeof lat === 'undefined') || (typeof lng === 'undefined')
         || lat === null || lng === null
         || lat === "" || lng === "") {
-        
+
     } else {
         initResultMap(new google.maps.LatLng(lat, lng));
     }
@@ -32,7 +31,6 @@ function initMap(lat, lng) {
 function setupSearch() {
     // Create the search box and link it to the UI element.
     var input = /** @type {HTMLInputElement} */(document.getElementById('bigSearch'));
-    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     var searchBox = new google.maps.places.SearchBox(
         /** @type {HTMLInputElement} */(input));
@@ -139,7 +137,6 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-        console.log(geoLocoObj);
         loadSidebarTop(geoLocoObj);
 
         marker.setAnimation(google.maps.Animation.BOUNCE);
@@ -150,12 +147,3 @@ function placeResultMarkers(geoLocoObj, loc, icon) {
     // Add Marker
     markersArray.push(marker);
 }
-
-
-
-
-
-
-
-
-

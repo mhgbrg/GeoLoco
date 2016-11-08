@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debug = require('debug');
 
+require('dotenv').config()
+
 var routes = require('./routes/index');
 var api = require('./routes/api');
 var twitter = require('./routes/twitter');

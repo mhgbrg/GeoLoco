@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 		var url = 'http://api.nytimes.com/svc/semantic/v2/geocodes/query.json';
 		url = url + '?bounding_box=' + northEastLat + ',' + northEastLng + ',' + southWestLat + ',' + southWestLng;
 		// url = url + '?nearby=' + lat + ',' + lng;
-		url = url + '&api-key=29bfaf2ab93fe7b43fca4c6c4ece772f:1:72094865';
+		url = url + '&api-key=' + process.env.NYTIMES_API_KEY;
 
 		var parse = function (data) {
 			var json = JSON.parse(data);
@@ -60,7 +60,7 @@ router.get('/', function(req, res, next) {
 		// url = url + '?filter-field:glocations:("Times Square")';
 		url = url + '?q=' + place.name;
 		url = url + '&sort=newest';
-		url = url + '&api-key=01eb55538f0498ee87e4ef047bf2328a:3:72094865';
+		url = url + '&api-key=' + process.env.NYTIMES_API_KEY;
 
 		var parse = function (data) {
 			var json = JSON.parse(data);

@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
     var lng = req.query.lng;
     var radius = req.query.radius;
 
-    var cid = "984943bd8fe74b70b0959b42494cd294";
+    var cid = process.env.INSTAGRAM_CLIENT_ID
     var url = 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lng + '&distance=' + radius + '&client_id=' + cid;
     var options = {
         url: url,

@@ -8,7 +8,7 @@ var qs = require('querystring');
 var crypto = require('crypto');
 
 var baseURL = "https://us-west-api.yikyakapi.net";
-var key = "F7CAFA2F-FE67-4E03-A090-AC7FFF010729";
+var key = process.env.YIKYAK_KEY;
 var userid = uuid.v4().toUpperCase(); // Generate a v4 UUID
 
 var options = {
