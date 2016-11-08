@@ -8,6 +8,9 @@ There are a couple of api keys needed to run the project:
 + YikYak
 
 ``` bash
+# prepare env and enter your keys
+cp .env-example .env
+
 # install dependencies
 npm install
 
